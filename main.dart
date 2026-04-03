@@ -6,17 +6,19 @@ void main() {
   ));
 }
 
-
 class HomePage extends StatelessWidget{
-
   @override
   Widget build(BuildContext context){
     return Scaffold(
       appBar: new AppBar(
         title:Text('my app demo'),
-      ), body: Container(color: Colors.red, width:100.0, height:100.0, ),
+      ), body: Row(
+      children:<Widget>[
+        Container(color: Colors.red, width:100.0, height:100.0, ),
+        Container(color: Colors.blue, width:100.0, height:100.0, ),
+      ]
+    )
     );
   }
-
 }
 
