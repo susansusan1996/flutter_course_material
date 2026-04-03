@@ -57,6 +57,13 @@ class HomePage2State extends State<HomePage2>{
           title:Text('my app demo'),
         ), body: Column(
         children:<Widget>[
+          Text('text!',
+            style: TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.w700,
+              color: Colors.green,
+            )
+          ),
           Container(
             color: getColor(),
             width:100.0,
