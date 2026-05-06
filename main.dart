@@ -7,45 +7,39 @@ void main() {
 }
 
 class HomePage extends StatelessWidget {
+  final List<Map<String, dynamic>> cardData = [
+    {'text': 'card 1', 'color': Colors.red},
+    {'text': 'card 2', 'color': Colors.green},
+    {'text': 'card 3', 'color': Colors.blue},
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('my app demo'),
-      ),
-      body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 120,
+      appBar: AppBar(title: Text('my app demo')),
+      body: ListView.builder(
+        itemCount: cardData.length,
+        itemBuilder: (context, index) {
+          return Center(
+            child: SizedBox(
               height: 200,
               child: Card(
-                elevation: 20, //陰影高度
-                color: Colors.red,
-                child: Center(child: Text('card 1', style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),)),
+                elevation: 20,
+                color: cardData[index]['color'],
+                child: Center(
+                  child: Text(
+                    cardData[index]['text'],
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
               ),
             ),
-            SizedBox(
-              width: 120,
-              height: 200,
-              child: Card(
-                elevation: 20,//陰影高度
-                color: Colors.green,
-                child: Center(child: Text('card 2', style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),)),
-              ),
-            ),
-            SizedBox(
-              width: 120,
-              height: 200,
-              child: Card(
-                elevation: 20,//陰影高度
-                color: Colors.blue,
-                child: Center(child: Text('card 3', style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),)),
-              ),
-            ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }
