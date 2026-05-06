@@ -1,87 +1,52 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 void main() {
-  return runApp(MaterialApp(
-    home:new HomePage2(),
+  runApp(MaterialApp(
+    home: HomePage(),
   ));
 }
 
-//---------------StatelessWidget---------------
-class HomePage extends StatelessWidget{
-  @override
-  Widget build(BuildContext context){
-    return Scaffold(
-      appBar: new AppBar(
-        title:Text('my app demo'),
-      ), body: Column(
-      children:<Widget>[
-        Container(
-          color: Colors.red,
-          width:100.0,
-          height:100.0,
-        ),
-        Container(
-          margin: EdgeInsets.all(10.0),
-          color: Colors.blue,
-          width:100.0,
-          height:100.0, ),
-      ]
-    )
-    );
-  }
-}
-
-//---------------StatefulWidget---------------
-class HomePage2 extends StatefulWidget{
-  @override
-  HomePage2State createState() {
-    return HomePage2State();
-  }
-}
-
-
-class HomePage2State extends State<HomePage2>{
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-         floatingActionButton: FloatingActionButton(
-             child: Icon(Icons.forward),
-             onPressed: (){
-           // 刷新頁面
-           setState((){
-
-           });
-         }),
-        appBar: new AppBar(
-          title:Text('my app demo'),
-        ), body: Column(
-        children:<Widget>[
-          Text('text!',
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.w700,
-              color: Colors.green,
-            )
-          ),
-          Container(
-            color: getColor(),
-            width:100.0,
-            height:100.0,
-          ),
-          Container(
-            margin: EdgeInsets.all(10.0),
-            color: getColor(),
-            width:100.0,
-            height:100.0, ),
-        ]
-    )
+      appBar: AppBar(
+        title: Text('my app demo'),
+      ),
+      body: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 120,
+              height: 200,
+              child: Card(
+                elevation: 20, //陰影高度
+                color: Colors.red,
+                child: Center(child: Text('card 1', style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),)),
+              ),
+            ),
+            SizedBox(
+              width: 120,
+              height: 200,
+              child: Card(
+                elevation: 20,//陰影高度
+                color: Colors.green,
+                child: Center(child: Text('card 2', style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),)),
+              ),
+            ),
+            SizedBox(
+              width: 120,
+              height: 200,
+              child: Card(
+                elevation: 20,//陰影高度
+                color: Colors.blue,
+                child: Center(child: Text('card 3', style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),)),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
-
-  Color getColor(){
-    return Color.fromARGB(255,Random().nextInt(255),Random().nextInt(255),Random().nextInt(255));
-  }
-
- 
 }
